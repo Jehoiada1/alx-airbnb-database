@@ -76,3 +76,30 @@ WHERE
     b.date >= CURRENT_DATE - INTERVAL '6 months'
 ORDER BY 
     b.date DESC;
+
+SELECT 
+    b.id AS booking_id,
+    b.date AS booking_date,
+    u.id AS user_id,
+    u.name AS user_name,
+    u.email AS user_email,
+    p.id AS property_id,
+    p.name AS property_name,
+    p.location AS property_location,
+    pay.id AS payment_id,
+    pay.amount AS payment_amount,
+    pay.status AS payment_status
+FROM 
+    bookings b
+JOIN 
+    users u ON b.user_id = u.id
+JOIN 
+    properties p ON b.property_id = p.id
+LEFT JOIN 
+    payments pay ON pay.booking_id = b.id
+WHERE
+    b.date IS NOT NULL
+    AND u.id IS NOT NULL
+ORDER BY 
+    b.date DESC;
+
