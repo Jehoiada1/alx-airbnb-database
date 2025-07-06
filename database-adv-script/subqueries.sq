@@ -2,10 +2,7 @@
 -- Author: Yodahe Eshetu
 -- Description: SQL queries using correlated and non-correlated subqueries
 
-
--- 1. NON-CORRELATED SUBQUERY
--- Find all properties where the average rating is greater than 4.0
-
+-- NON-CORRELATED SUBQUERY: AVG_RATING_GT_4
 SELECT 
     id, name, location
 FROM 
@@ -25,10 +22,7 @@ ORDER BY
     name ASC;
 
 
-
--- 2. CORRELATED SUBQUERY
--- Find users who have made more than 3 bookings
-
+-- CORRELATED SUBQUERY: USERS_WITH_MORE_THAN_3_BOOKINGS
 SELECT 
     id, name, email
 FROM 
